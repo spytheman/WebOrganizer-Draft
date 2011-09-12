@@ -2,5 +2,5 @@
 *.zip
 *.war
 build/*
-/nbproject/private/
-/dist/
+nbproject/private/
+dist/
