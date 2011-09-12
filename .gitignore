@@ -3,3 +3,4 @@
 *.war
 build/*
 /nbproject/private/
+/dist/
