@@ -1,0 +1,12 @@
+09-13 10:13:59 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "TABLE_NAME" not found; SQL statement:
+select * from table_name [42102-155]
+09-13 10:21:28 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT INTO TEST (1[*], 'alabala') "; expected "identifier"; SQL statement:
+insert into test (1, 'alabala') [42001-155]
+09-13 10:21:34 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT "; expected "TOP, LIMIT, DISTINCT, ALL, *, NOT, EXISTS"; SQL statement:
+show create table test [42001-155]
+09-13 10:22:23 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SAVE[*] "; expected "SELECT, SET, SAVEPOINT, SCRIPT, SHUTDOWN, SHOW, {"; SQL statement:
+save [42001-155]
