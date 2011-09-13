@@ -40,7 +40,7 @@ CREATE TABLE org_business (
     bmobile VARCHAR(30),
     bmobile2 VARCHAR(30), 
     fax VARCHAR(30),
-    contacts_id INTEGER UNSIGNED,
+    business_id INTEGER UNSIGNED,
     FOREIGN KEY (business_id) REFERENCES org_contacts(id) 
 );
 
