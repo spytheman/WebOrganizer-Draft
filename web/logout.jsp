@@ -1,16 +1,20 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<!DOCTYPE html>
+<html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-        <title>Organized Life</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>        
+        <title>WebOrganizer: Logout</title>
+        
+        <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="VAADIN/themes/runo/favicon.ico" />
+        <link rel="icon" type="image/vnd.microsoft.icon"          href="VAADIN/themes/runo/favicon.ico" />
+
+        <link rel="stylesheet" type="text/css"                    href="style.css" />        
     </head>
     <body>
-        <h1>You have been logged out</h1>
-		<p>
-			<a href="login.jsp">Log in</a> again.
-		</p>
+        <div id='pagecontainer'>
+            <h1>Успешно излязохте от органайзера</h1>
+            <p><a href=".">Влезте</a> пак.</p>
+        </div>
     </body>
 </html>
-<%
-    session.invalidate();
-%>
+<% session.invalidate(); %>
