@@ -17,6 +17,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 /**
@@ -40,58 +41,74 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "OrgUsers.findByCountry", query = "SELECT o FROM OrgUsers o WHERE o.country = :country")})
 public class OrgUsers implements Serializable {
     private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @NotNull
     @Column(name = "ID")
     private Integer id;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 30)
     @Column(name = "FIRSTNAME")
     private String firstname;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 30)
     @Column(name = "LASTNAME")
     private String lastname;
-    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
+    
+    @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 30)
     @Column(name = "EMAIL")
     private String email;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 30)
     @Column(name = "USERNAME")
     private String username;
+    
+    @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
     @Size(max = 30)
     @Column(name = "EMAIL2")
     private String email2;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 32)
     @Column(name = "PASSWORD")
     private String password;
+    
     @Size(max = 30)
     @Column(name = "MOBILE")
     private String mobile;
+    
     @Size(max = 30)
     @Column(name = "MOBILE2")
     private String mobile2;
+    
     @Size(max = 30)
     @Column(name = "TIMEZONE")
     private String timezone;
+    
     @Size(max = 30)
     @Column(name = "COUNTRY")
     private String country;
+    
+    
     @OneToMany(mappedBy = "orgUsers")
     private Collection<OrgContacts> orgContactsCollection;
+    
     @OneToMany(mappedBy = "orgUsers")
     private Collection<OrgNotes> orgNotesCollection;
 
+    
     public OrgUsers() {
     }
 
