@@ -30,3 +30,6 @@ By default, the database is located in the res/database/main.h2.db
 file in this project, and contains 1 schema named also main , which
 contains a pristine project DB without any data in it.
 
+After the H2 server is started, you can connect to it using this JDBC URI:
+jdbc:h2:tcp://localhost:9092/main
+
