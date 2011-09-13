@@ -11,4 +11,22 @@ Another change from WinXP land ... this time from different user
 
 And ... this change is from within the NetBeans IDE, using the Git plugin, installed using the Tools->Plugins dialog.
 
+
 The persistence is implemented using the h2 jdbc driver.
+
+How to start the DB server:
+===================================================
+   1) open a new shell, and execute these commands in it:
+  
+   cd /opt/NetBeansProjects/WebOrganizerPersistence
+   h2/start_h2_server.sh
+   
+How to stop the DB server:
+===================================================
+   1) Find the shell that you opened at step 1. Press Ctrl-C .
+
+
+By default, the database is located in the res/database/main.h2.db
+file in this project, and contains 1 schema named also main , which
+contains a pristine project DB without any data in it.
+
