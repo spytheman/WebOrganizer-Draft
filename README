@@ -10,3 +10,5 @@ Another change from WinXP land ... this time from different user
 (to make a clear distinction when the virtual WinXP is used).
 
 And ... this change is from within the NetBeans IDE, using the Git plugin, installed using the Tools->Plugins dialog.
+
+The persistence is implemented using the h2 jdbc driver.
