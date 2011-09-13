@@ -46,10 +46,12 @@ public class WebOrganizerApp extends Application {
     public void print(Object object) {
         System.out.println(object.toString());
 
+        /*
         ArrayList<MainWindow> arr = new ArrayList();
         arr.add(new MainWindow());
 
         arr.get(2).setPageContent(wContact);
+         */
     }
 
     @Override
