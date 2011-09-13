@@ -54,3 +54,9 @@ form div input{
     font-size: 18px;
     font-weight: bold;
 }
+
+.error{
+    color:red;
+    font-weight:bold;
+    font-size:120%;
+}
