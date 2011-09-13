@@ -28,7 +28,7 @@
         max-wait-time-in-millis="60000" 
         name="h2mainpool" 
         non-transactional-connections="false" 
-        ping="false" 
+        ping="true" 
         pool-resize-quantity="2" 
         pooling="true" 
         res-type="javax.sql.DataSource" 
