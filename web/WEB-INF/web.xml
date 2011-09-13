@@ -19,7 +19,18 @@
             <description>Vaadin application class to start</description>
         </init-param>
     </servlet>
+    
+    <servlet>
+        <servlet-name>default</servlet-name>
+        <servlet-class>org.apache.catalina.servlets.DefaultServlet</servlet-class>
+    </servlet>    
 
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>/static/*</url-pattern>
+    </servlet-mapping>
+    
+    
     <servlet-mapping>
         <servlet-name>WebOrganizer</servlet-name>
         <url-pattern>/*</url-pattern>
