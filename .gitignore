@@ -1,7 +1,4 @@
-*.jar
-*.zip
-*.war
 build/*
-nbproject/private/
-dist/
+nbproject/private/*
+dist/*
 res/test.trace.db
