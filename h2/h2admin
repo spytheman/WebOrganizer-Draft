@@ -1,5 +1,5 @@
 #!/bin/sh
-cp=h2-1.3.159.jar
+cp=../lib/h2-1.3.159.jar
 if [ -n "$H2DRIVERS" ] ; then
   cp="$cp:$H2DRIVERS"
 fi
