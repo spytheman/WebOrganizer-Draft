@@ -37,8 +37,8 @@ CREATE TABLE org_business (
     bmobile     VARCHAR(30),
     bmobile2    VARCHAR(30), 
     fax         VARCHAR(30),
-    business_id INTEGER UNSIGNED,
-    FOREIGN KEY (business_id) REFERENCES org_contacts(id) 
+    contacts_id INTEGER UNSIGNED,
+    FOREIGN KEY (contacts_id) REFERENCES org_contacts(id) 
 );
 
 DROP TABLE IF EXISTS `ORG_NOTES`;
