@@ -41,55 +41,31 @@ public class MainWindow extends Window {
         this(null, null);
     }
 
+    private Button newButton(String label, EventType x) {
+        Button b = new Button(label);
+        b.setStyleName(Reindeer.BUTTON_LINK);
+        b.addListener(new ButtonChangePageListener(x, this));
+        return b;
+    }
+
     public MainWindow(EventBus eventBus, BaseContent content) {
         setTheme("runo");
         // Set my event bus
         this.eventBus = eventBus;
 
         // Main Buttons
-        btnHome = new Button("Home");
-        btnHome.setStyleName(Reindeer.BUTTON_LINK);
-        btnHome.addListener(new ButtonChangePageListener(EventType.CHANGE_PAGE_TO_HOME, this));
 
-        btnLogin = new Button("Login");
-        btnLogin.setStyleName(Reindeer.BUTTON_LINK);
-        btnLogin.addListener(new ButtonChangePageListener(EventType.CHANGE_PAGE_TO_LOGIN, this));
-
-        btnSignup = new Button("Sign up");
-        btnSignup.setStyleName(Reindeer.BUTTON_LINK);
-        btnSignup.addListener(new ButtonChangePageListener(EventType.CHANGE_PAGE_TO_SIGNUP, this));
-
-        btnDemoLogin = new Button("DemoLogin");
-        btnDemoLogin.setStyleName(Reindeer.BUTTON_LINK);
-        btnDemoLogin.addListener(new ButtonChangePageListener(EventType.CHANGE_PAGE_TO_DEMOLOGIN, this));
-
-        btnContact = new Button("Contacts");
-        btnContact.setStyleName(Reindeer.BUTTON_LINK);
-        btnContact.addListener(new ButtonChangePageListener(EventType.CHANGE_PAGE_TO_CONTACT, this));
-
-        btnHelp = new Button("Help");
-        btnHelp.setStyleName(Reindeer.BUTTON_LINK);
-        btnHelp.addListener(new ButtonChangePageListener(EventType.CHANGE_PAGE_TO_HELP, this));
-
-        btnTerms = new Button("Terms Of Use");
-        btnTerms.setStyleName(Reindeer.BUTTON_LINK);
-        btnTerms.addListener(new ButtonChangePageListener(EventType.CHANGE_PAGE_TO_TERMS, this));
-
-        btnFeatures = new Button("Features");
-        btnFeatures.setStyleName(Reindeer.BUTTON_LINK);
-        btnFeatures.addListener(new ButtonChangePageListener(EventType.CHANGE_PAGE_TO_FEATURES, this));
-
-        btnScreenshots = new Button("Screenshots");
-        btnScreenshots.setStyleName(Reindeer.BUTTON_LINK);
-        btnScreenshots.addListener(new ButtonChangePageListener(EventType.CHANGE_PAGE_TO_SCREENSHOTS, this));
-
-        btnPrivacyPolicy = new Button("Privacy Policy");
-        btnPrivacyPolicy.setStyleName(Reindeer.BUTTON_LINK);
-        btnPrivacyPolicy.addListener(new ButtonChangePageListener(EventType.CHANGE_PAGE_TO_POLICY, this));
-
-        btnAboutUs = new Button("About Us");
-        btnAboutUs.setStyleName(Reindeer.BUTTON_LINK);
-        btnAboutUs.addListener(new ButtonChangePageListener(EventType.CHANGE_PAGE_TO_ABOUT, this));
+        btnHome = newButton("Home", EventType.CHANGE_PAGE_TO_HOME);
+        btnLogin = newButton("Login", EventType.CHANGE_PAGE_TO_LOGIN);
+        btnSignup = newButton("Sign up", EventType.CHANGE_PAGE_TO_SIGNUP);
+        btnDemoLogin = newButton("DemoLogin", EventType.CHANGE_PAGE_TO_DEMOLOGIN);
+        btnContact = newButton("Contacts", EventType.CHANGE_PAGE_TO_CONTACT);
+        btnHelp = newButton("Help", EventType.CHANGE_PAGE_TO_HELP);
+        btnTerms = newButton("Terms Of Use", EventType.CHANGE_PAGE_TO_TERMS);
+        btnFeatures = newButton("Features", EventType.CHANGE_PAGE_TO_FEATURES);
+        btnScreenshots = newButton("Screenshots", EventType.CHANGE_PAGE_TO_SCREENSHOTS);
+        btnPrivacyPolicy = newButton("Privacy Policy", EventType.CHANGE_PAGE_TO_POLICY);
+        btnAboutUs = newButton("About Us", EventType.CHANGE_PAGE_TO_ABOUT);
 
         setCaption("Main Window");
         mainLayout = new GridLayout(3, 3);
