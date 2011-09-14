@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewOrgUsersTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewOrgUsersLabel_id}"/>
+                    <h:outputText value="#{orgUsersController.selected.id}" title="#{bundle.ViewOrgUsersTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewOrgUsersLabel_firstname}"/>
+                    <h:outputText value="#{orgUsersController.selected.firstname}" title="#{bundle.ViewOrgUsersTitle_firstname}"/>
+                    <h:outputText value="#{bundle.ViewOrgUsersLabel_lastname}"/>
+                    <h:outputText value="#{orgUsersController.selected.lastname}" title="#{bundle.ViewOrgUsersTitle_lastname}"/>
+                    <h:outputText value="#{bundle.ViewOrgUsersLabel_email}"/>
+                    <h:outputText value="#{orgUsersController.selected.email}" title="#{bundle.ViewOrgUsersTitle_email}"/>
+                    <h:outputText value="#{bundle.ViewOrgUsersLabel_username}"/>
+                    <h:outputText value="#{orgUsersController.selected.username}" title="#{bundle.ViewOrgUsersTitle_username}"/>
+                    <h:outputText value="#{bundle.ViewOrgUsersLabel_email2}"/>
+                    <h:outputText value="#{orgUsersController.selected.email2}" title="#{bundle.ViewOrgUsersTitle_email2}"/>
+                    <h:outputText value="#{bundle.ViewOrgUsersLabel_password}"/>
+                    <h:outputText value="#{orgUsersController.selected.password}" title="#{bundle.ViewOrgUsersTitle_password}"/>
+                    <h:outputText value="#{bundle.ViewOrgUsersLabel_mobile}"/>
+                    <h:outputText value="#{orgUsersController.selected.mobile}" title="#{bundle.ViewOrgUsersTitle_mobile}"/>
+                    <h:outputText value="#{bundle.ViewOrgUsersLabel_mobile2}"/>
+                    <h:outputText value="#{orgUsersController.selected.mobile2}" title="#{bundle.ViewOrgUsersTitle_mobile2}"/>
+                    <h:outputText value="#{bundle.ViewOrgUsersLabel_timezone}"/>
+                    <h:outputText value="#{orgUsersController.selected.timezone}" title="#{bundle.ViewOrgUsersTitle_timezone}"/>
+                    <h:outputText value="#{bundle.ViewOrgUsersLabel_country}"/>
+                    <h:outputText value="#{orgUsersController.selected.country}" title="#{bundle.ViewOrgUsersTitle_country}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{orgUsersController.destroyAndView}" value="#{bundle.ViewOrgUsersDestroyLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="Edit" value="#{bundle.ViewOrgUsersEditLink}"/>
+                <br />
+                <h:commandLink action="#{orgUsersController.prepareCreate}" value="#{bundle.ViewOrgUsersCreateLink}" />
+                <br />
+                <h:commandLink action="#{orgUsersController.prepareList}" value="#{bundle.ViewOrgUsersShowAllLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ViewOrgUsersIndexLink}" action="/index" immediate="true" />
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
