@@ -84,36 +84,6 @@ public class SignUpContent extends BaseContent {
 
     }
 
-    public class IntegerValidator implements Validator {
-
-        private String message;
-
-        public IntegerValidator(String message) {
-            this.message = message;
-        }
-
-        @Override
-        public boolean isValid(Object value) {
-            if (value == null || !(value instanceof String)) {
-                return false;
-            }
-            try {
-                Integer.parseInt((String) value);
-            } catch (Exception e) {
-                return false;
-            }
-            return true;
-        }
-
-        @Override
-        public void validate(Object value) throws InvalidValueException {
-            if (!isValid(value)) {
-                throw new InvalidValueException(message);
-
-            }
-
-        }
-    }
 
     @Override
     public void setEventBus(EventBus eventBus) {
