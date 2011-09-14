@@ -9,8 +9,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Temporal;
@@ -23,7 +21,7 @@ import javax.persistence.Temporal;
 public class Contact implements Serializable {
     @Id
     private long id = 0;
-    @Enumerated(EnumType.ORDINAL)
+//    @Enumerated(EnumType.STRING)
     private String cfirstName = "";
     private String clastName = "";
 
