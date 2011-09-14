@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scene Scope="Project" version="2">
+    <Scope Scope="Faces Configuration Only"/>
+    <Scope Scope="Project">
+        <Node id="test.html" x="148" y="196" zoom="true"/>
+        <Node id="VAADIN/themes/sampler/layouts/examplecustomlayout.html" x="7" y="518" zoom="true"/>
+        <Node id="admin/orgUsers/View.xhtml" x="473" y="129" zoom="true"/>
+        <Node id="template.xhtml" x="473" y="62" zoom="true"/>
+        <Node id="admin/orgUsers/List.xhtml" x="473" y="195" zoom="true"/>
+        <Node id="VAADIN/themes/example/layouts/Support.html" x="7" y="378" zoom="true"/>
+        <Node id="VAADIN/themes/example/layouts/Contact.html" x="8" y="491" zoom="true"/>
+        <Node id="VAADIN/themes/example/layouts/News.html" x="10" y="319" zoom="true"/>
+        <Node id="index.html" x="146" y="106" zoom="true"/>
+        <Node id="VAADIN/themes/example/layouts/Welcome.html" x="9" y="348" zoom="true"/>
+        <Node id="admin/orgUsers/Edit.xhtml" x="474" y="163" zoom="true"/>
+        <Node id="logout.jsp" x="147" y="137" zoom="true"/>
+        <Node id="index.xhtml" x="474" y="26" zoom="true"/>
+        <Node id="VAADIN/themes/example/layouts/Products.html" x="6" y="407" zoom="true"/>
+        <Node id="admin/orgUsers/Create.xhtml" x="473" y="95" zoom="true"/>
+        <Node id="VAADIN/themes/example/layouts/mainLayout.html" x="7" y="433" zoom="true"/>
+        <Node id="loginError.html" x="147" y="166" zoom="true"/>
+        <Node id="VAADIN/themes/example/layouts/Developers.html" x="8" y="462" zoom="true"/>
+        <Node id="VAADIN/test.html" x="10" y="291" zoom="true"/>
+    </Scope>
+    <Scope Scope="All Faces Configurations"/>
+</Scene>
