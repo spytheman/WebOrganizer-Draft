@@ -18,6 +18,7 @@ public class OrgUsersFacade extends AbstractFacade<OrgUsers> {
     @PersistenceContext(unitName = "WebOrganizerPersistencePU")
     private EntityManager em;
 
+    @Override
     protected EntityManager getEntityManager() {
         return em;
     }
