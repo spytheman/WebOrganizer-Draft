@@ -5,7 +5,12 @@
 package com.web.organizer.db;
 
 import java.io.Serializable;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Collection;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -177,8 +182,22 @@ public class OrgUsers implements Serializable {
         return password;
     }
 
+    public String md5(String s){
+        try {
+            MessageDigest m=MessageDigest.getInstance("MD5");
+            m.update(s.getBytes(),0,s.length());
+            byte[] data = s.getBytes(); 
+            m.update(data,0,data.length);
+            BigInteger i = new BigInteger(1,m.digest());
+            return String.format("%1$032X", i);
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(OrgUsers.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return "";
+    }
+    
     public void setPassword(String password) {
-        this.password = password;
+        this.password = md5(password);
     }
 
     public String getMobile() {
