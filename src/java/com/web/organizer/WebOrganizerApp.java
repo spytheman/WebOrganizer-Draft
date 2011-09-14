@@ -45,23 +45,23 @@ public class WebOrganizerApp extends Application {
     @Override
     public void init() {
         eventBus = new EventBus();
-        
-        newTab(wMain,     new MainContent(),       "Home",       EventType.CHANGE_PAGE_TO_HOME);
-        newTab(wHelp,     new HelpContent(),       "Help",       EventType.CHANGE_PAGE_TO_HELP);
-        newTab(wTerms,    new TermsContent(),      "Terms",      EventType.CHANGE_PAGE_TO_TERMS);
-        newTab(wAbout,    new AboutContent(),      "About",      EventType.CHANGE_PAGE_TO_ABOUT);
-        newTab(wPolicy,   new PolicyContent(),     "Policy",     EventType.CHANGE_PAGE_TO_POLICY);
-        newTab(wSignUp,   new SignUpContent(),     "SignUp",     EventType.CHANGE_PAGE_TO_SIGNUP);
-        newTab(wShare,    new ShareContent(),      "Share",      EventType.CHANGE_PAGE_TO_SHARE);
-        newTab(wContact,  new ContactContent(),    "Contact",    EventType.CHANGE_PAGE_TO_CONTACT);
-        newTab(wView,     new MainViewContent(),   "Register",   EventType.CHANGE_PAGE_TO_MAINVIEW);
+
+        newTab(wMain, new MainContent(), "Home", EventType.CHANGE_PAGE_TO_HOME);
+        newTab(wHelp, new HelpContent(), "Help", EventType.CHANGE_PAGE_TO_HELP);
+        newTab(wTerms, new TermsContent(), "Terms", EventType.CHANGE_PAGE_TO_TERMS);
+        newTab(wAbout, new AboutContent(), "About", EventType.CHANGE_PAGE_TO_ABOUT);
+        newTab(wPolicy, new PolicyContent(), "Policy", EventType.CHANGE_PAGE_TO_POLICY);
+        newTab(wSignUp, new SignUpContent(), "SignUp", EventType.CHANGE_PAGE_TO_SIGNUP);
+        newTab(wShare, new ShareContent(), "Share", EventType.CHANGE_PAGE_TO_SHARE);
+        newTab(wContact, new ContactContent(), "Contact", EventType.CHANGE_PAGE_TO_CONTACT);
+        newTab(wView, new MainViewContent(), "Register", EventType.CHANGE_PAGE_TO_MAINVIEW);
         newTab(wNContact, new NewContactContent(), "NewContact", EventType.CHANGE_PAGE_TO_NEWCONTACT);
     }
 
-    private void newTab(MainWindow tab, BaseContent c, String label, EventType e){
+    private void newTab(MainWindow tab, BaseContent c, String label, EventType e) {
         tab = new MainWindow(eventBus, c);
         tab.setName(label);
         setMainWindow(tab);
-        eventBus.addListener(e,  new OnChangePageListener(new ExternalResource(tab.getURL())) );
+        eventBus.addListener(e, new OnChangePageListener(new ExternalResource(tab.getURL())));
     }
 }
