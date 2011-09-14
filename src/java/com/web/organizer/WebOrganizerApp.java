@@ -6,8 +6,7 @@ package com.web.organizer;
 //package com.web.organizer.ui;
 
 import com.vaadin.Application;
-//import com.vaadin.ui.Label;
-//import com.vaadin.ui.Window;
+
 import com.vaadin.terminal.ExternalResource;
 import com.web.organizer.events.BaseEvent.EventType;
 import com.web.organizer.events.EventBus;
@@ -41,10 +40,12 @@ public class WebOrganizerApp extends Application {
     private MainWindow wSignUp;
     private MainWindow wView;
     private MainWindow wNContact;
-    private EventBus eventBus = new EventBus();
+    private EventBus eventBus;
 
     @Override
     public void init() {
+        eventBus = new EventBus();
+        
         newTab(wMain,     new MainContent(),       "Home",       EventType.CHANGE_PAGE_TO_HOME);
         newTab(wHelp,     new HelpContent(),       "Help",       EventType.CHANGE_PAGE_TO_HELP);
         newTab(wTerms,    new TermsContent(),      "Terms",      EventType.CHANGE_PAGE_TO_TERMS);
