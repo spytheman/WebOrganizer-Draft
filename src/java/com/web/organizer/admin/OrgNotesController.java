@@ -52,6 +52,7 @@ public class OrgNotesController implements Serializable {
                     return getFacade().count();
                 }
 
+                @SuppressWarnings("unchecked")
                 @Override
                 public DataModel createPageDataModel() {
                     return new ListDataModel(getFacade().findRange(new int[]{getPageFirstItem(), getPageFirstItem()+getPageSize()}));
