@@ -184,8 +184,7 @@ public class OrgUsers implements Serializable {
 
     public String md5(String s){
         try {
-            MessageDigest m=MessageDigest.getInstance("MD5");
-            m.update(s.getBytes(),0,s.length());
+            MessageDigest m=MessageDigest.getInstance("MD5");            
             byte[] data = s.getBytes(); 
             m.update(data,0,data.length);
             BigInteger i = new BigInteger(1,m.digest());
