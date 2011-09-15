@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
-    <persistence-unit name="WebOrganizerPersistencePU" transaction-type="JTA">
-        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-        <jta-data-source>jdbc/h2main</jta-data-source>
-        <exclude-unlisted-classes>false</exclude-unlisted-classes>
-        <properties>
-        
-            <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
-            <property name="toplink.target-database" value="oracle.toplink.essentials.platform.database.H2Platform"/>
-
-        </properties>
-    </persistence-unit>
+  <persistence-unit name="WebOrganizerPersistencePU" transaction-type="JTA">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <jta-data-source>jdbc/h2main</jta-data-source>
+    <class>com.web.organizer.db.OrgBusiness</class>
+    <class>com.web.organizer.db.OrgContacts</class>
+    <class>com.web.organizer.db.OrgEvents</class>
+    <class>com.web.organizer.db.OrgNotes</class>
+    <class>com.web.organizer.db.OrgPayment</class>
+    <class>com.web.organizer.db.OrgTasks</class>
+    <class>com.web.organizer.db.OrgUsers</class>
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    <shared-cache-mode>NONE</shared-cache-mode>
+    <properties>
+      <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
+      <property name="toplink.target-database" value="oracle.toplink.essentials.platform.database.H2Platform"/>
+    </properties>
+  </persistence-unit>
 </persistence>
