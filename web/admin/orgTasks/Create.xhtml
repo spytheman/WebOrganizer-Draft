@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateOrgTasksTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateOrgTasksLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{orgTasksController.selected.id}" title="#{bundle.CreateOrgTasksTitle_id}" required="true" requiredMessage="#{bundle.CreateOrgTasksRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreateOrgTasksLabel_starttime}" for="starttime" />
+                    <h:inputText id="starttime" value="#{orgTasksController.selected.starttime}" title="#{bundle.CreateOrgTasksTitle_starttime}" required="true" requiredMessage="#{bundle.CreateOrgTasksRequiredMessage_starttime}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateOrgTasksLabel_endtime}" for="endtime" />
+                    <h:inputText id="endtime" value="#{orgTasksController.selected.endtime}" title="#{bundle.CreateOrgTasksTitle_endtime}" required="true" requiredMessage="#{bundle.CreateOrgTasksRequiredMessage_endtime}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateOrgTasksLabel_reocurring}" for="reocurring" />
+                    <h:inputText id="reocurring" value="#{orgTasksController.selected.reocurring}" title="#{bundle.CreateOrgTasksTitle_reocurring}" />
+                    <h:outputLabel value="#{bundle.CreateOrgTasksLabel_orgNotes}" for="orgNotes" />
+                    <h:selectOneMenu id="orgNotes" value="#{orgTasksController.selected.orgNotes}" title="#{bundle.CreateOrgTasksTitle_orgNotes}" >
+                        <f:selectItems value="#{orgNotesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{orgTasksController.create}" value="#{bundle.CreateOrgTasksSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{orgTasksController.prepareList}" value="#{bundle.CreateOrgTasksShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.CreateOrgTasksIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

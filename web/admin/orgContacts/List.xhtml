@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListOrgContactsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+        <h:form styleClass="jsfcrud_list_form">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:outputText escape="false" value="#{bundle.ListOrgContactsEmpty}" rendered="#{orgContactsController.items.rowCount == 0}"/>
+            <h:panelGroup rendered="#{orgContactsController.items.rowCount > 0}">
+                <h:outputText value="#{orgContactsController.pagination.pageFirstItem + 1}..#{orgContactsController.pagination.pageLastItem + 1}/#{orgContactsController.pagination.itemsCount}"/>&nbsp;
+                <h:commandLink action="#{orgContactsController.previous}" value="#{bundle.Previous} #{orgContactsController.pagination.pageSize}" rendered="#{orgContactsController.pagination.hasPreviousPage}"/>&nbsp;
+                <h:commandLink action="#{orgContactsController.next}" value="#{bundle.Next} #{orgContactsController.pagination.pageSize}" rendered="#{orgContactsController.pagination.hasNextPage}"/>&nbsp;
+                <h:dataTable value="#{orgContactsController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListOrgContactsTitle_id}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.id}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListOrgContactsTitle_cfirstname}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.cfirstname}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListOrgContactsTitle_clastname}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.clastname}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListOrgContactsTitle_cemail}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.cemail}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListOrgContactsTitle_cemail2}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.cemail2}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListOrgContactsTitle_cmobile}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.cmobile}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListOrgContactsTitle_cmobile2}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.cmobile2}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListOrgContactsTitle_ccountry}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.ccountry}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListOrgContactsTitle_orgUsers}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.orgUsers}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{orgContactsController.prepareView}" value="#{bundle.ListOrgContactsViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{orgContactsController.prepareEdit}" value="#{bundle.ListOrgContactsEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{orgContactsController.destroy}" value="#{bundle.ListOrgContactsDestroyLink}"/>
+                    </h:column>
+                </h:dataTable>
+            </h:panelGroup>
+            <br />
+            <h:commandLink action="#{orgContactsController.prepareCreate}" value="#{bundle.ListOrgContactsCreateLink}"/>
+            <br />
+            <br />
+            <h:commandLink value="#{bundle.ListOrgContactsIndexLink}" action="/index" immediate="true" />
+        </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListOrgTasksTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListOrgTasksEmpty}" rendered="#{orgTasksController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{orgTasksController.items.rowCount > 0}">
+                    <h:outputText value="#{orgTasksController.pagination.pageFirstItem + 1}..#{orgTasksController.pagination.pageLastItem + 1}/#{orgTasksController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{orgTasksController.previous}" value="#{bundle.Previous} #{orgTasksController.pagination.pageSize}" rendered="#{orgTasksController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{orgTasksController.next}" value="#{bundle.Next} #{orgTasksController.pagination.pageSize}" rendered="#{orgTasksController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{orgTasksController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOrgTasksTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOrgTasksTitle_starttime}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.starttime}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOrgTasksTitle_endtime}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.endtime}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOrgTasksTitle_reocurring}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.reocurring}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOrgTasksTitle_orgNotes}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.orgNotes}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{orgTasksController.prepareView}" value="#{bundle.ListOrgTasksViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{orgTasksController.prepareEdit}" value="#{bundle.ListOrgTasksEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{orgTasksController.destroy}" value="#{bundle.ListOrgTasksDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{orgTasksController.prepareCreate}" value="#{bundle.ListOrgTasksCreateLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ListOrgTasksIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

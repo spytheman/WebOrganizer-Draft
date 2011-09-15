@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewOrgBusinessTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewOrgBusinessLabel_id}"/>
+                    <h:outputText value="#{orgBusinessController.selected.id}" title="#{bundle.ViewOrgBusinessTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewOrgBusinessLabel_companyname}"/>
+                    <h:outputText value="#{orgBusinessController.selected.companyname}" title="#{bundle.ViewOrgBusinessTitle_companyname}"/>
+                    <h:outputText value="#{bundle.ViewOrgBusinessLabel_position}"/>
+                    <h:outputText value="#{orgBusinessController.selected.position}" title="#{bundle.ViewOrgBusinessTitle_position}"/>
+                    <h:outputText value="#{bundle.ViewOrgBusinessLabel_bemail}"/>
+                    <h:outputText value="#{orgBusinessController.selected.bemail}" title="#{bundle.ViewOrgBusinessTitle_bemail}"/>
+                    <h:outputText value="#{bundle.ViewOrgBusinessLabel_bemail2}"/>
+                    <h:outputText value="#{orgBusinessController.selected.bemail2}" title="#{bundle.ViewOrgBusinessTitle_bemail2}"/>
+                    <h:outputText value="#{bundle.ViewOrgBusinessLabel_bmobile}"/>
+                    <h:outputText value="#{orgBusinessController.selected.bmobile}" title="#{bundle.ViewOrgBusinessTitle_bmobile}"/>
+                    <h:outputText value="#{bundle.ViewOrgBusinessLabel_bmobile2}"/>
+                    <h:outputText value="#{orgBusinessController.selected.bmobile2}" title="#{bundle.ViewOrgBusinessTitle_bmobile2}"/>
+                    <h:outputText value="#{bundle.ViewOrgBusinessLabel_fax}"/>
+                    <h:outputText value="#{orgBusinessController.selected.fax}" title="#{bundle.ViewOrgBusinessTitle_fax}"/>
+                    <h:outputText value="#{bundle.ViewOrgBusinessLabel_orgContacts}"/>
+                    <h:outputText value="#{orgBusinessController.selected.orgContacts}" title="#{bundle.ViewOrgBusinessTitle_orgContacts}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{orgBusinessController.destroyAndView}" value="#{bundle.ViewOrgBusinessDestroyLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="Edit" value="#{bundle.ViewOrgBusinessEditLink}"/>
+                <br />
+                <h:commandLink action="#{orgBusinessController.prepareCreate}" value="#{bundle.ViewOrgBusinessCreateLink}" />
+                <br />
+                <h:commandLink action="#{orgBusinessController.prepareList}" value="#{bundle.ViewOrgBusinessShowAllLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ViewOrgBusinessIndexLink}" action="/index" immediate="true" />
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditOrgContactsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditOrgContactsLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{orgContactsController.selected.id}" title="#{bundle.EditOrgContactsTitle_id}" required="true" requiredMessage="#{bundle.EditOrgContactsRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditOrgContactsLabel_cfirstname}" for="cfirstname" />
+                    <h:inputText id="cfirstname" value="#{orgContactsController.selected.cfirstname}" title="#{bundle.EditOrgContactsTitle_cfirstname}" required="true" requiredMessage="#{bundle.EditOrgContactsRequiredMessage_cfirstname}"/>
+                    <h:outputLabel value="#{bundle.EditOrgContactsLabel_clastname}" for="clastname" />
+                    <h:inputText id="clastname" value="#{orgContactsController.selected.clastname}" title="#{bundle.EditOrgContactsTitle_clastname}" required="true" requiredMessage="#{bundle.EditOrgContactsRequiredMessage_clastname}"/>
+                    <h:outputLabel value="#{bundle.EditOrgContactsLabel_cemail}" for="cemail" />
+                    <h:inputText id="cemail" value="#{orgContactsController.selected.cemail}" title="#{bundle.EditOrgContactsTitle_cemail}" required="true" requiredMessage="#{bundle.EditOrgContactsRequiredMessage_cemail}"/>
+                    <h:outputLabel value="#{bundle.EditOrgContactsLabel_cemail2}" for="cemail2" />
+                    <h:inputText id="cemail2" value="#{orgContactsController.selected.cemail2}" title="#{bundle.EditOrgContactsTitle_cemail2}" />
+                    <h:outputLabel value="#{bundle.EditOrgContactsLabel_cmobile}" for="cmobile" />
+                    <h:inputText id="cmobile" value="#{orgContactsController.selected.cmobile}" title="#{bundle.EditOrgContactsTitle_cmobile}" />
+                    <h:outputLabel value="#{bundle.EditOrgContactsLabel_cmobile2}" for="cmobile2" />
+                    <h:inputText id="cmobile2" value="#{orgContactsController.selected.cmobile2}" title="#{bundle.EditOrgContactsTitle_cmobile2}" />
+                    <h:outputLabel value="#{bundle.EditOrgContactsLabel_ccountry}" for="ccountry" />
+                    <h:inputText id="ccountry" value="#{orgContactsController.selected.ccountry}" title="#{bundle.EditOrgContactsTitle_ccountry}" />
+                    <h:outputLabel value="#{bundle.EditOrgContactsLabel_orgUsers}" for="orgUsers" />
+                    <h:selectOneMenu id="orgUsers" value="#{orgContactsController.selected.orgUsers}" title="#{bundle.EditOrgContactsTitle_orgUsers}" >
+                        <f:selectItems value="#{orgUsersController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{orgContactsController.update}" value="#{bundle.EditOrgContactsSaveLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="View" value="#{bundle.EditOrgContactsViewLink}" immediate="true"/>
+                <br />
+                <h:commandLink action="#{orgContactsController.prepareList}" value="#{bundle.EditOrgContactsShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.EditOrgContactsIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateOrgPaymentTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateOrgPaymentLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{orgPaymentController.selected.id}" title="#{bundle.CreateOrgPaymentTitle_id}" required="true" requiredMessage="#{bundle.CreateOrgPaymentRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreateOrgPaymentLabel_amount}" for="amount" />
+                    <h:inputText id="amount" value="#{orgPaymentController.selected.amount}" title="#{bundle.CreateOrgPaymentTitle_amount}" />
+                    <h:outputLabel value="#{bundle.CreateOrgPaymentLabel_comming}" for="comming" />
+                    <h:inputText id="comming" value="#{orgPaymentController.selected.comming}" title="#{bundle.CreateOrgPaymentTitle_comming}" />
+                    <h:outputLabel value="#{bundle.CreateOrgPaymentLabel_finished}" for="finished" />
+                    <h:inputText id="finished" value="#{orgPaymentController.selected.finished}" title="#{bundle.CreateOrgPaymentTitle_finished}" />
+                    <h:outputLabel value="#{bundle.CreateOrgPaymentLabel_orgTasks}" for="orgTasks" />
+                    <h:selectOneMenu id="orgTasks" value="#{orgPaymentController.selected.orgTasks}" title="#{bundle.CreateOrgPaymentTitle_orgTasks}" >
+                        <f:selectItems value="#{orgTasksController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{orgPaymentController.create}" value="#{bundle.CreateOrgPaymentSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{orgPaymentController.prepareList}" value="#{bundle.CreateOrgPaymentShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.CreateOrgPaymentIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

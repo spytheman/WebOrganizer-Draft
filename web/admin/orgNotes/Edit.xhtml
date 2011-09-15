@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditOrgNotesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditOrgNotesLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{orgNotesController.selected.id}" title="#{bundle.EditOrgNotesTitle_id}" required="true" requiredMessage="#{bundle.EditOrgNotesRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditOrgNotesLabel_title}" for="title" />
+                    <h:inputText id="title" value="#{orgNotesController.selected.title}" title="#{bundle.EditOrgNotesTitle_title}" required="true" requiredMessage="#{bundle.EditOrgNotesRequiredMessage_title}"/>
+                    <h:outputLabel value="#{bundle.EditOrgNotesLabel_description}" for="description" />
+                    <h:inputText id="description" value="#{orgNotesController.selected.description}" title="#{bundle.EditOrgNotesTitle_description}" />
+                    <h:outputLabel value="#{bundle.EditOrgNotesLabel_orgUsers}" for="orgUsers" />
+                    <h:selectOneMenu id="orgUsers" value="#{orgNotesController.selected.orgUsers}" title="#{bundle.EditOrgNotesTitle_orgUsers}" >
+                        <f:selectItems value="#{orgUsersController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{orgNotesController.update}" value="#{bundle.EditOrgNotesSaveLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="View" value="#{bundle.EditOrgNotesViewLink}" immediate="true"/>
+                <br />
+                <h:commandLink action="#{orgNotesController.prepareList}" value="#{bundle.EditOrgNotesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.EditOrgNotesIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

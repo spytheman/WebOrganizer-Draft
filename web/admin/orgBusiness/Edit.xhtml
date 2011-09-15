@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditOrgBusinessTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditOrgBusinessLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{orgBusinessController.selected.id}" title="#{bundle.EditOrgBusinessTitle_id}" required="true" requiredMessage="#{bundle.EditOrgBusinessRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditOrgBusinessLabel_companyname}" for="companyname" />
+                    <h:inputText id="companyname" value="#{orgBusinessController.selected.companyname}" title="#{bundle.EditOrgBusinessTitle_companyname}" />
+                    <h:outputLabel value="#{bundle.EditOrgBusinessLabel_position}" for="position" />
+                    <h:inputText id="position" value="#{orgBusinessController.selected.position}" title="#{bundle.EditOrgBusinessTitle_position}" />
+                    <h:outputLabel value="#{bundle.EditOrgBusinessLabel_bemail}" for="bemail" />
+                    <h:inputText id="bemail" value="#{orgBusinessController.selected.bemail}" title="#{bundle.EditOrgBusinessTitle_bemail}" />
+                    <h:outputLabel value="#{bundle.EditOrgBusinessLabel_bemail2}" for="bemail2" />
+                    <h:inputText id="bemail2" value="#{orgBusinessController.selected.bemail2}" title="#{bundle.EditOrgBusinessTitle_bemail2}" />
+                    <h:outputLabel value="#{bundle.EditOrgBusinessLabel_bmobile}" for="bmobile" />
+                    <h:inputText id="bmobile" value="#{orgBusinessController.selected.bmobile}" title="#{bundle.EditOrgBusinessTitle_bmobile}" />
+                    <h:outputLabel value="#{bundle.EditOrgBusinessLabel_bmobile2}" for="bmobile2" />
+                    <h:inputText id="bmobile2" value="#{orgBusinessController.selected.bmobile2}" title="#{bundle.EditOrgBusinessTitle_bmobile2}" />
+                    <h:outputLabel value="#{bundle.EditOrgBusinessLabel_fax}" for="fax" />
+                    <h:inputText id="fax" value="#{orgBusinessController.selected.fax}" title="#{bundle.EditOrgBusinessTitle_fax}" />
+                    <h:outputLabel value="#{bundle.EditOrgBusinessLabel_orgContacts}" for="orgContacts" />
+                    <h:selectOneMenu id="orgContacts" value="#{orgBusinessController.selected.orgContacts}" title="#{bundle.EditOrgBusinessTitle_orgContacts}" >
+                        <f:selectItems value="#{orgContactsController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{orgBusinessController.update}" value="#{bundle.EditOrgBusinessSaveLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="View" value="#{bundle.EditOrgBusinessViewLink}" immediate="true"/>
+                <br />
+                <h:commandLink action="#{orgBusinessController.prepareList}" value="#{bundle.EditOrgBusinessShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.EditOrgBusinessIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditOrgEventsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditOrgEventsLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{orgEventsController.selected.id}" title="#{bundle.EditOrgEventsTitle_id}" required="true" requiredMessage="#{bundle.EditOrgEventsRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditOrgEventsLabel_location}" for="location" />
+                    <h:inputText id="location" value="#{orgEventsController.selected.location}" title="#{bundle.EditOrgEventsTitle_location}" />
+                    <h:outputLabel value="#{bundle.EditOrgEventsLabel_orgTasks}" for="orgTasks" />
+                    <h:selectOneMenu id="orgTasks" value="#{orgEventsController.selected.orgTasks}" title="#{bundle.EditOrgEventsTitle_orgTasks}" >
+                        <f:selectItems value="#{orgTasksController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{orgEventsController.update}" value="#{bundle.EditOrgEventsSaveLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="View" value="#{bundle.EditOrgEventsViewLink}" immediate="true"/>
+                <br />
+                <h:commandLink action="#{orgEventsController.prepareList}" value="#{bundle.EditOrgEventsShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.EditOrgEventsIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

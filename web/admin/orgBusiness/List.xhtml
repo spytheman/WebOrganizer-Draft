@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListOrgBusinessTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+        <h:form styleClass="jsfcrud_list_form">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:outputText escape="false" value="#{bundle.ListOrgBusinessEmpty}" rendered="#{orgBusinessController.items.rowCount == 0}"/>
+            <h:panelGroup rendered="#{orgBusinessController.items.rowCount > 0}">
+                <h:outputText value="#{orgBusinessController.pagination.pageFirstItem + 1}..#{orgBusinessController.pagination.pageLastItem + 1}/#{orgBusinessController.pagination.itemsCount}"/>&nbsp;
+                <h:commandLink action="#{orgBusinessController.previous}" value="#{bundle.Previous} #{orgBusinessController.pagination.pageSize}" rendered="#{orgBusinessController.pagination.hasPreviousPage}"/>&nbsp;
+                <h:commandLink action="#{orgBusinessController.next}" value="#{bundle.Next} #{orgBusinessController.pagination.pageSize}" rendered="#{orgBusinessController.pagination.hasNextPage}"/>&nbsp;
+                <h:dataTable value="#{orgBusinessController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListOrgBusinessTitle_id}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.id}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListOrgBusinessTitle_companyname}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.companyname}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListOrgBusinessTitle_position}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.position}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListOrgBusinessTitle_bemail}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.bemail}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListOrgBusinessTitle_bemail2}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.bemail2}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListOrgBusinessTitle_bmobile}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.bmobile}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListOrgBusinessTitle_bmobile2}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.bmobile2}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListOrgBusinessTitle_fax}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.fax}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListOrgBusinessTitle_orgContacts}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.orgContacts}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{orgBusinessController.prepareView}" value="#{bundle.ListOrgBusinessViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{orgBusinessController.prepareEdit}" value="#{bundle.ListOrgBusinessEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{orgBusinessController.destroy}" value="#{bundle.ListOrgBusinessDestroyLink}"/>
+                    </h:column>
+                </h:dataTable>
+            </h:panelGroup>
+            <br />
+            <h:commandLink action="#{orgBusinessController.prepareCreate}" value="#{bundle.ListOrgBusinessCreateLink}"/>
+            <br />
+            <br />
+            <h:commandLink value="#{bundle.ListOrgBusinessIndexLink}" action="/index" immediate="true" />
+        </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
